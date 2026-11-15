@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E230046.LoginPage"
+             Title="Iniciar sesión"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout Padding="32,64" Spacing="18">
+            <Label
+                Text="Bienvenido"
+                FontSize="32"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Inicia sesión para continuar"
+                TextColor="Gray"
+                HorizontalOptions="Center"
+                Margin="0,0,0,18" />
+
+            <Label Text="Correo electrónico" FontAttributes="Bold" />
+            <Entry
+                x:Name="CorreoEntry"
+                Placeholder="correo@ejemplo.com"
+                Keyboard="Email"
+                ReturnType="Next"
+                ClearButtonVisibility="WhileEditing" />
+
+            <Label Text="Contraseña" FontAttributes="Bold" Margin="0,8,0,0" />
+            <Entry
+                x:Name="ClaveEntry"
+                Placeholder="Escribe tu contraseña"
+                IsPassword="True"
+                ReturnType="Go"
+                Completed="OnLoginClicked" />
+
+            <HorizontalStackLayout Spacing="8">
+                <CheckBox x:Name="MostrarClaveCheckBox" CheckedChanged="OnMostrarClaveChanged" />
+                <Label
+                    Text="Mostrar contraseña"
+                    VerticalOptions="Center"
+                    TextColor="Gray" />
+            </HorizontalStackLayout>
+
+            <Label
+                x:Name="ErrorLabel"
+                IsVisible="False"
+                TextColor="Red"
+                FontSize="14" />
+
+            <Button
+                x:Name="LoginButton"
+                Text="Iniciar sesión"
+                Clicked="OnLoginClicked"
+                HeightRequest="52"
+                Margin="0,12,0,0" />
+
+            <ActivityIndicator
+                x:Name="LoadingIndicator"
+                IsVisible="False"
+                IsRunning="False"
+                HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

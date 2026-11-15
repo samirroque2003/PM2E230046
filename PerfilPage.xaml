@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E230046.PerfilPage"
+             Title="Mi perfil">
+    <ScrollView>
+        <VerticalStackLayout Padding="28,40" Spacing="18">
+            <Border
+                BackgroundColor="#512BD4"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 70"
+                HeightRequest="120"
+                WidthRequest="120"
+                HorizontalOptions="Center">
+                <Label
+                    x:Name="InicialesLabel"
+                    Text="?"
+                    TextColor="White"
+                    FontSize="42"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            </Border>
+
+            <Label
+                x:Name="NombreLabel"
+                Text="Cargando perfil..."
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Border
+                x:Name="NivelBorder"
+                Padding="18"
+                BackgroundColor="#DCFCE7"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 12"
+                >
+                <VerticalStackLayout Spacing="14">
+                    <Label Text="Información del perfil" FontSize="18" FontAttributes="Bold" />
+
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
+                        <Label Text="Disponible para trabajar" TextColor="Gray" VerticalOptions="Center" />
+                        <Switch x:Name="DisponibleSwitch" Grid.Column="1" HorizontalOptions="End" />
+
+                        <Label Text="Años de experiencia" Grid.Row="1" TextColor="Gray" />
+                        <Label x:Name="ExperienciaLabel" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" />
+
+                        <Label Text="Nivel" Grid.Row="2" TextColor="Gray" />
+                        <Label x:Name="NivelLabel" Grid.Row="2" Grid.Column="1" FontAttributes="Bold" />
+                    </Grid>
+
+                    <Slider
+                        x:Name="ExperienciaSlider"
+                        Minimum="0"
+                        Maximum="15"
+                        MinimumTrackColor="#512BD4"
+                        MaximumTrackColor="#CBD5E1"
+                        ValueChanged="OnExperienciaChanged" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label
+                x:Name="ErrorLabel"
+                IsVisible="False"
+                TextColor="Red"
+                HorizontalTextAlignment="Center" />
+
+            <ActivityIndicator
+                x:Name="LoadingIndicator"
+                IsVisible="False"
+                IsRunning="False"
+                HorizontalOptions="Center" />
+
+            <Button
+                Text="Cerrar Sesion"
+                Clicked="OnCerrarSesionClicked"
+                BackgroundColor="#D32F2F"
+                TextColor="White"
+                Margin="0,12,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
